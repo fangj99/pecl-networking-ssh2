@@ -30,7 +30,8 @@
 /*.la
 /tests/*.out
 /tests/*.php
-/test/*.exp
-/test/*.diff
-/test/*.sh
-/test/*.log
+/tests/*.exp
+/tests/*.diff
+/tests/*.sh
+/tests/*.log
+/tmp-php.ini
