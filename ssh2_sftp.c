@@ -50,7 +50,7 @@ void php_ssh2_sftp_dtor(zend_resource *rsrc)
    * SFTP File Ops *
    ***************** */
 
-inline unsigned long php_ssh2_parse_fopen_modes(char *openmode) {
+unsigned long php_ssh2_parse_fopen_modes(const char *openmode) {
 	unsigned long flags = 0;
 
 	if (strchr(openmode, 'a')) {
@@ -76,7 +76,7 @@ inline unsigned long php_ssh2_parse_fopen_modes(char *openmode) {
 	return flags;
 }
 
-inline int php_ssh2_sftp_attr2ssb(php_stream_statbuf *ssb, LIBSSH2_SFTP_ATTRIBUTES *attrs)
+int php_ssh2_sftp_attr2ssb(php_stream_statbuf *ssb, LIBSSH2_SFTP_ATTRIBUTES *attrs)
 {
 	memset(ssb, 0, sizeof(php_stream_statbuf));
 	if (attrs->flags & LIBSSH2_SFTP_ATTR_SIZE) {
@@ -236,7 +236,7 @@ static php_stream *php_ssh2_sftp_stream_opener(php_stream_wrapper *wrapper, cons
 		return NULL;
 	}
 
-	flags = php_ssh2_parse_fopen_modes((char *)mode);
+	flags = php_ssh2_parse_fopen_modes(mode);
 
 	handle = libssh2_sftp_open(sftp, resource->path, flags, perms);
 	if (!handle) {
