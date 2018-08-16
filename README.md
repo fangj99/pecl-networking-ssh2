@@ -19,3 +19,6 @@ Contribute
 
 Your contributions and bugreports are highly appreciated. To contribute, fork and create a pull request. To report a
 bug use the [PHP Bug Tracking System](https://bugs.php.net/)
+
+
+## This is working with php70u and centos 7 on linode vps
